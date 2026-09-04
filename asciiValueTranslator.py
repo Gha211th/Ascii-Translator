@@ -10,6 +10,8 @@ def ascii_Translator():
 /_/  |_/____/\___/_/_/     /_/ /_/   \__,_/_/ /_/____/_/\__,_/\__/\___/ 
     """
 
+    help_manual = ">> Press 'q' for quit or 'c' for clear the screen...."
+
     ascii_list = {
         "A": 65,
         "B": 66,
@@ -108,13 +110,29 @@ def ascii_Translator():
 
                 print(f"the number u give: {decimal_list}")
                 print(f"The result is: {result}")
+                continue_quest = input(">> Continue? (press y or n)>> ").lower()
+                if continue_quest == "y":
+                    continue
+                else:
+                    break
 
             except ValueError:
                 print("the value is undifined!")
                 print("Please separate with a space between the number")
+                continue_quest = input(">> Continue? (press y or n)>> ").lower()
+                if continue_quest == "y":
+                    continue
+                else:
+                    break
+
             except KeyError:
                 print("the key is undifined")
                 print("Please separate with a space between the number")
+                continue_quest = input(">> Continue? (press y or n)>> ").lower()
+                if continue_quest == "y":
+                    continue
+                else:
+                    break
 
         elif select_type == "2":
             print("please type any alphabet (e.g., 'CAR')")
@@ -128,10 +146,20 @@ def ascii_Translator():
                         decimal_result_list.append(ascii_list[char])
                     else:
                         print("The character is not avaiable")
-                        continue
+                        continue_quest = input(">> Continue? (press y or n)>> ").lower()
+                        if continue_quest == "y":
+                            continue
+                        else:
+                            break
+
                 else:
                     print(f"The word u give: {user_input}")
                     print(f"The result: {decimal_result_list}")
+                    continue_quest = input(">> Continue? (press y or n)>> ").lower()
+                    if continue_quest == "y":
+                        continue
+                    else:
+                        break
 
             except KeyError:
                 print("The value is undifined")
@@ -140,6 +168,12 @@ def ascii_Translator():
             os.system("clear")
             print("GOOD BYE :)")
             break
+
+        elif select_type == "-h":
+            print(help_manual)
+
+        elif select_type == "c":
+            os.system("clear")
 
         else:
             print("Operation is not avaiable")
