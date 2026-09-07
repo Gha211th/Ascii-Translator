@@ -98,17 +98,20 @@ def ascii_Translator():
                 decimal_list = [int(num) for num in user_input.split()]
 
                 char_list = []
+                undifined_value = []
 
                 for decimal_char in decimal_list:
                     if 65 <= decimal_char <= 126:
                         char_list.append(reversed_ascii_list[decimal_char])
                     else:
                         print(f"{decimal_char} its out of the range")
+                        undifined_value.append(decimal_char)
                         continue
 
                 result = "".join(char_list)
 
                 print(f"the number u give: {decimal_list}")
+                print(f"Undifined value: {undifined_value}")
                 print(f"The result is: {result}")
 
             except ValueError:
