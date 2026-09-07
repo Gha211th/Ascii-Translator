@@ -110,56 +110,35 @@ def ascii_Translator():
 
                 print(f"the number u give: {decimal_list}")
                 print(f"The result is: {result}")
-                continue_quest = input(">> Continue? (press y or n)>> ").lower()
-                if continue_quest == "y":
-                    continue
-                else:
-                    break
 
             except ValueError:
                 print("the value is undifined!")
                 print("Please separate with a space between the number")
-                continue_quest = input(">> Continue? (press y or n)>> ").lower()
-                if continue_quest == "y":
-                    continue
-                else:
-                    break
 
             except KeyError:
                 print("the key is undifined")
                 print("Please separate with a space between the number")
-                continue_quest = input(">> Continue? (press y or n)>> ").lower()
-                if continue_quest == "y":
-                    continue
-                else:
-                    break
 
         elif select_type == "2":
             print("please type any alphabet (e.g., 'CAR')")
             try:
                 user_input = input(" >> ")
+                clean_input = user_input.replace(" ", "")
 
                 decimal_result_list = []
+                undifined_value = []
 
-                for char in user_input:
+                for char in clean_input:
                     if char in ascii_list:
                         decimal_result_list.append(ascii_list[char])
                     else:
-                        print("The character is not avaiable")
-                        continue_quest = input(">> Continue? (press y or n)>> ").lower()
-                        if continue_quest == "y":
-                            continue
-                        else:
-                            break
+                        undifined_value.append(char)
+                        continue
 
                 else:
                     print(f"The word u give: {user_input}")
+                    print(f"Undifined word: {undifined_value}")
                     print(f"The result: {decimal_result_list}")
-                    continue_quest = input(">> Continue? (press y or n)>> ").lower()
-                    if continue_quest == "y":
-                        continue
-                    else:
-                        break
 
             except KeyError:
                 print("The value is undifined")
